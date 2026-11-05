@@ -3,10 +3,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-API_KEY = os.environ.get("FLIGHTAPI_API_KEY")
+FLIGHTAPI_API_KEY = os.environ.get("FLIGHTAPI_API_KEY")
 
 def flight_tool(origin: str, destination: str, date: str) -> dict:
-    url = f"https://api.flightapi.io/onewaytrip/{API_KEY}/{origin}/{destination}/{date}/1/0/0/Economy/USD"
+    url = f"https://api.flightapi.io/onewaytrip/{FLIGHTAPI_API_KEY}/{origin}/{destination}/{date}/1/0/0/Economy/USD"
 
     try:
         response = requests.get(url)
@@ -20,5 +20,3 @@ def flight_tool(origin: str, destination: str, date: str) -> dict:
             }
     except requests.exceptions.RequestException as e:
             return {"error": True, "message": str(e)}
-
-print(flight_tool("JFK", "LAX", "2026-12-15"))

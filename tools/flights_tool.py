@@ -1,10 +1,12 @@
 import os, requests
 from dotenv import load_dotenv
+from langchain_core import tools
 
 load_dotenv()
 
 FLIGHTAPI_API_KEY = os.environ.get("FLIGHTAPI_API_KEY")
 
+@tools
 def flight_tool(origin: str, destination: str, date: str) -> dict:
     url = f"https://api.flightapi.io/onewaytrip/{FLIGHTAPI_API_KEY}/{origin}/{destination}/{date}/1/0/0/Economy/USD"
 

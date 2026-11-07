@@ -1,10 +1,12 @@
 import os, requests
 from dotenv import load_dotenv
+from langchain_core import tools
 
 load_dotenv()
 
 HOTELAPI_API_KEY = os.environ.get("HOTELAPI_API_KEY")
 
+@tools
 def hotel_tool(city: str) -> dict:
     url = f"https://api.makcorps.com/mapping?name={city}&api_key={HOTELAPI_API_KEY}"
 

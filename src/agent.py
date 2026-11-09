@@ -12,7 +12,7 @@ memory = MemorySaver()
 
 def create_expense_agent():
     google_model = ChatGoogleGenerativeAI(
-        model="gemini-3.5-flash", 
+        model="gemini-3.5-flash",
         temperature=0
     )
 
